@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Frequently Asked Questions — Find quick answers to common questions about accounts, payments, technical issues, privacy, and more." />
+  <title>FAQ — Help Center</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ====== HEADER ====== -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="logo" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="8" fill="var(--accent)"/>
+          <path d="M10 12h12M10 16h8M10 20h10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>HelpCenter</span>
+      </div>
+
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        aria-label="Toggle dark mode"
+        title="Toggle theme"
+      >
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+
+    <!-- ====== HERO SECTION ====== -->
+    <section class="hero" aria-label="FAQ introduction">
+      <div class="hero-content">
+        <h1 class="hero-title">Frequently Asked Questions</h1>
+        <p class="hero-subtitle">Find quick answers to the most common questions. Can't find what you're looking for? <a href="#" class="hero-link">Contact our support team</a>.</p>
+        <div class="hero-stats" id="heroStats">
+          <span class="stat-badge">📚 <strong id="totalCount">0</strong> questions available</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SEARCH BAR ====== -->
+    <section class="search-section" aria-label="Search FAQs">
+      <div class="search-wrapper">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input
+          type="search"
+          id="searchInput"
+          class="search-input"
+          placeholder="Search for answers... (e.g. password, refund, login)"
+          aria-label="Search FAQs"
+          autocomplete="off"
+        />
+        <button class="search-clear" id="searchClear" aria-label="Clear search" hidden>✕</button>
+      </div>
+      <p class="search-status" id="searchStatus" aria-live="polite"></p>
+    </section>
+
+    <!-- ====== CATEGORY TABS ====== -->
+    <nav class="category-tabs" aria-label="FAQ categories" role="tablist" id="categoryTabs">
+      <!-- Tabs injected by JS -->
+    </nav>
+
+    <!-- ====== MOST ASKED SECTION ====== -->
+    <section class="most-asked" id="mostAskedSection" aria-label="Most asked questions">
+      <h2 class="section-heading">🔥 Most Asked Questions</h2>
+      <div class="faq-list" id="mostAskedList">
+        <!-- Loading skeleton -->
+      </div>
+    </section>
+
+    <!-- ====== CONTROLS ====== -->
+    <div class="controls-bar" id="controlsBar">
+      <button class="ctrl-btn" id="expandAllBtn" aria-label="Expand all FAQs">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        Expand All
+      </button>
+      <button class="ctrl-btn" id="collapseAllBtn" aria-label="Collapse all FAQs">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        Collapse All
+      </button>
+      <span class="visible-count" id="visibleCount"></span>
+    </div>
+
+    <!-- ====== FAQ ACCORDION ====== -->
+    <section class="faq-section" aria-label="FAQ accordion">
+      <div class="faq-list" id="faqList">
+        <!-- FAQs injected by JS -->
+      </div>
+    </section>
+
+    <!-- ====== NO RESULTS ====== -->
+    <div class="no-results" id="noResults" hidden>
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="8" x2="14" y2="14"/><line x1="14" y1="8" x2="8" y2="14"/>
+      </svg>
+      <h3>No results found</h3>
+      <p>Try different keywords or browse a different category.</p>
+      <button class="ctrl-btn reset-btn" id="resetSearch">Reset Search</button>
+    </div>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+        <div class="footer__container">
+            <p class="footer__text">Built with ❤️ by <strong>Vasu Prajapati</strong></p>
+            <div class="footer__links">
+                <a href="https://github.com/Vashukumar90" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub</a>
+                <a href="https://www.linkedin.com/in/vasu-prajapati56" target="_blank" rel="noopener noreferrer" class="footer__link">LinkedIn</a>
+                <a href="http://vasuportfolio.free.nf/index.html/?i=1" target="_blank" rel="noopener noreferrer" class="footer__link">Portfolio</a>
+            </div>
+        </div>
+    </footer>
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
